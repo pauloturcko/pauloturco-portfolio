@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Dogs",
+    "description": "O projeto Dogs é uma rede social para cachorros, desenvolvido para aplicar conhecimentos em React e React Router DOM. Durante o processo, utilizei uma API, implementando tratamento de erros quando necessário. O maior desafio foi a validação de formulários, onde aprofundei técnicas importantes. Além disso, destaquei o uso eficiente do React Router DOM",
+    "projectLink": "https://dogs-origamid.vercel.app/",
+    "repoLink": "https://github.com/pauloturcko/Dogs",
+    "technologies": ["React", "JavaScript", "ReactRouterDOM", "CSS" ],
+    "projectType": "Este é um projeto do curso de React na Origamid"
+  },
+  {
+    "name": "Portfólio",
+    "description": "Este é um projeto desenvolvido por mim do absoluto zero, onde além das minhas skills em programação pude também praticar meu conhecimento com UX/UI e Figma, o projeto foi desenvolvido utilizando React & Styled Components, com o intuito de apresentar os projetos nos quais trabalhei, bem como toda a minha experiência na área",
+    "projectLink": "https://pauloturcko.github.io/pauloturco-portfolio",
+    "repoLink": "https://github.com/pauloturcko/potfolio",
+    "technologies": ["React", "JavaScript", "StyledComponents", "Figma"],
+    "projectType": "Este é um projeto autoral, sem fins lucrativos"
+  },
+  {
+    "name": "React-Router",
+    "description": "Este projeto foi desenvolvido com o objetivo de aprofundar os conceitos da biblioteca React-Router-DOM. Nele, foi implementada a interação com uma API simulando um marketplace, incluindo o consumo de dados através de requisições assíncronas. Além disso, foram aplicadas práticas de tratamento de erros, garantindo uma exibição adequada de mensagens para o usuário em casos de falhas",
+    "projectLink": "https://vitalitygym.com",
+    "repoLink": "https://github.com/pauloturcko/React-Router-Test",
+    "technologies": ["React", "JavaScript", "CSS"],
+    "projectType": "Este é um projeto autoral, sem fins lucrativos"
+  },
+  {
+    "name": "Forest",
+    "description": "Projeto ainda em desenvolvimento, pegue um café e aguarde enquanto escrevo mais algumas linhas de código...",
+    "projectLink": "https://github.com/pauloturcko",
+    "repoLink": "https://github.com/pauloturcko",
+    "technologies": ["JavaScript","HTML", "Tailwindcss"],
+    "projectType": "Este é um projeto autoral, sem fins lucrativos"
+  }
+]
