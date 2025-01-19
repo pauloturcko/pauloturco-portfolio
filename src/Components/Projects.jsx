@@ -8,7 +8,7 @@ const Projects = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0)
 
   useEffect(() => {
-    fetch('../../public/Projects.json')
+    fetch('/pauloturco-portfolio/Projects.json')
       .then((response) => response.json())
       .then((data) => {
         setProjects(data);
