@@ -1,3 +1,12 @@
+import { keyframes } from "styled-components";
+
+const animeElement = keyframes`
+  to {
+    opacity: 1;
+    transform: initial;
+  }
+`
+
 const theme = {
   colors: {
     primary: '#96C300',
@@ -12,6 +21,9 @@ const theme = {
     primary: 'Nunito, sans-serif',
     secondary: 'Lato, sans-serif'
   },
+  animations: {
+    animeElement
+  }
 };
 
 export default theme;

@@ -1,17 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import useInView from '../Hooks/useInView'
 
 const Experience = () => {
+  const [ref, isInView] = useInView({
+    threshold: 0.1,
+  })
+
   return (
-    <StyledArticle id='experience' aria-label='Experiência'>
+    <StyledArticle
+      id='experience'
+      aria-label='Experiência'
+      ref={ref}
+      className={isInView ? 'visible' : ''}
+    >
       <StyledDiv>
-        <SectionTitle>Por<br></br>onde<br></br>andei</SectionTitle>
+        <SectionTitle className={isInView ? 'visible' : ''}>Por<br></br>onde<br></br>andei</SectionTitle>
         <Info>
           <TitleDiv>
-            <Company>Neocom</Company>
-            <JobTitle>Desenvolvedor Front-End</JobTitle>
+            <Company className={isInView ? 'visible' : ''}>Neocom</Company>
+            <JobTitle className={isInView ? 'visible' : ''}>Desenvolvedor Front-End</JobTitle>
           </TitleDiv>
-          <Description>Desenvolvimento de landing pages para campanhas publicitárias utilizando HTML, CSS & JavaScript. Para projetos maiores e mais complexos utilizava React, JavaScript e StyledComponents ou TailwindCSS, desta forma conseguindo manter o código limpo, reutilizável e escalável para possíveis atualizações futuras.</Description>
+          <Description className={isInView ? 'visible' : ''}>Desenvolvimento de landing pages para campanhas publicitárias utilizando HTML, CSS & JavaScript. Para projetos maiores e mais complexos utilizava React, JavaScript e StyledComponents ou TailwindCSS, desta forma conseguindo manter o código limpo, reutilizável e escalável para possíveis atualizações futuras.</Description>
         </Info>
       </StyledDiv>
     </StyledArticle>
@@ -40,6 +50,13 @@ const SectionTitle = styled.h1`
   line-height: 80px;
   text-transform: uppercase;
   display: none;
+
+  opacity: 0;
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-delay: 1s;
+  }
 
   @media (min-width: 1280px) {
     display: flex;
@@ -98,6 +115,13 @@ const Company = styled.h3`
   font-family: ${({ theme }) => theme.fonts.primary};
   font-size: 1.3rem;
   font-weight: 700;
+
+  opacity: 0;
+  transform: translatex(100px);
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+  }
 `
 
 const JobTitle = styled.h4`
@@ -106,6 +130,14 @@ const JobTitle = styled.h4`
   font-size: 0.875rem;
   font-weight: 400;
   text-transform: uppercase;
+
+  opacity: 0;
+  transform: translatex(100px);
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-delay: 0.3s;
+  }
 `
 
 const Description = styled.p`
@@ -113,6 +145,14 @@ const Description = styled.p`
   font-family: ${({ theme }) => theme.fonts.primary};
   font-size: 1.25rem;
   font-weight: 500;
+
+  opacity: 0;
+  transform: translatex(100px);
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-delay: 0.6s;
+  }
 
   @media (min-width: 1280px) {
     width: 35rem;

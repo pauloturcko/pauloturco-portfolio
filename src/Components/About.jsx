@@ -4,12 +4,22 @@ import CardGraduation from './CardGraduation'
 import { RiGraduationCapLine } from "react-icons/ri";
 import { IoCode } from "react-icons/io5";
 import { MdOutlineBrush } from "react-icons/md";
+import useInView from '../Hooks/useInView';
 
 const About = () => {
+  const [ref, isInView] = useInView({
+    threshold: 0.1,
+  })
+
   return (
-    <StyledArticle id='about' aria-label='Sobre Mim'>
+    <StyledArticle
+      ref={ref}
+      className={isInView ? 'visible' : ''}
+      id='about'
+      aria-label='Sobre Mim'
+    >
       <StyledDiv>
-        <StyledText>Sou um desenvolvedor <Highlight>Front-End</Highlight> apaixonado por tecnologia e inovação, gosto de pesquisar, ver e entender como tudo isso funciona.<br></br>
+        <StyledText className={isInView ? 'visible' : ''}>Sou um desenvolvedor <Highlight>Front-End</Highlight> apaixonado por tecnologia e inovação, gosto de pesquisar, ver e entender como tudo isso funciona.<br></br>
           Estou nesta área a 2 anos e atualmente trabalho com <Highlight>React</Highlight>, <Highlight>JavaScript</Highlight> e <Highlight>TypeScript</Highlight>.</StyledText>
         <GraduationDiv>
           <CardGraduation
@@ -17,18 +27,21 @@ const About = () => {
             course='Ciências da Computação'
             icon={RiGraduationCapLine}
             institution='Unoesc'
+            isInView={isInView}
           />
           <CardGraduation
             title='Curso'
             course='Formação Front-End'
             icon={IoCode}
             institution='Alura'
+            isInView={isInView}
           />
           <CardGraduation
             title='Curso'
             course='Front-End e UX/UI'
             icon={MdOutlineBrush}
             institution='Origamid'
+            isInView={isInView}
           />
         </GraduationDiv>
       </StyledDiv>
@@ -77,6 +90,13 @@ const StyledText = styled.p`
   letter-spacing: 1px;
   position: relative;
 
+  opacity: 0;
+  transform: translatex(-100px);
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+  }
+
   &::before {
     content: '';
     width: 100px;
@@ -89,14 +109,15 @@ const StyledText = styled.p`
 
     @media (min-width: 1280px) {
       left: 9%;
-  }
+    }
   }
 
   @media (min-width: 1280px) {
     text-align: start;
     width: 34rem;
   }
-`
+`;
+
 
 const Highlight = styled.strong`
   color: ${({ theme }) => theme.colors.primary};

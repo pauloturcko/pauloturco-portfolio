@@ -61,6 +61,10 @@ const Title = styled.h1`
   font-family: ${({ theme }) => theme.fonts.primary};
   font-size: 2.25rem;
   font-weight: 700;
+
+  opacity: 0;
+  transform: translatex(-100px);
+  animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
 `
 
 const Subtitle = styled.h4`
@@ -69,6 +73,11 @@ const Subtitle = styled.h4`
   font-size: 1.75rem;
   font-weight: 600;
   text-align: center;
+
+  opacity: 0;
+  transform: translatex(-100px);
+  animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+  animation-delay: 0.3s;
 `
 
 const DownloadCvButton = styled.a`
@@ -85,6 +94,11 @@ const DownloadCvButton = styled.a`
   font-family: ${({ theme }) => theme.fonts.secondary};
   border-radius: 5px;
   margin-top: 1rem;
+
+  opacity: 0;
+  transform: translatex(-100px);
+  animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+  animation-delay: 0.6s;
 
   @media (min-width: 1280px) {
     width: 14rem;

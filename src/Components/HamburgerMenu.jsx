@@ -21,6 +21,10 @@ const StyledDiv = styled.div`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+
+  opacity: 0;
+  animation: ${({ theme }) => theme.animations.animeElement} .5s forwards;
+  animation-delay: 1.3s;
 `
 
 const StyledBar = styled.div`

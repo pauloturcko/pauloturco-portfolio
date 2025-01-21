@@ -4,7 +4,7 @@ import { FaReact, FaJs, FaFigma } from "react-icons/fa";
 import { SiStyledcomponents, SiReactrouter, SiTailwindcss, SiTypescript } from "react-icons/si";
 import { MdCss, MdHtml } from "react-icons/md";
 
-const ProjectsDetails = ({ project }) => {
+const ProjectsDetails = ({ project, isInView }) => {
   const techIcons = {
     React: <FaReact />,
     JavaScript: <FaJs />,
@@ -20,9 +20,10 @@ const ProjectsDetails = ({ project }) => {
   return (
     <StyledDiv>
       <FirstDetails>
-        <ProjectDescription>{project.description}</ProjectDescription>
+        <ProjectDescription className={isInView ? 'visible' : ''}>{project.description}</ProjectDescription>
         <ProjectAccess>
           <ViewProject
+            className={isInView ? 'visible' : ''}
             href={project.projectLink}
             target="_blank"
             rel="noopener noreferrer"
@@ -30,6 +31,7 @@ const ProjectsDetails = ({ project }) => {
             Visualizar Projeto
           </ViewProject>
           <RepoProject
+            className={isInView ? 'visible' : ''}
             href={project.repoLink}
             target='_blank'
             rel='noopener noreferrer'
@@ -40,7 +42,7 @@ const ProjectsDetails = ({ project }) => {
       </FirstDetails>
       <LastDetails>
         <TechnologiesGroup>
-          <TechnologiesTitle>Tecnologias Utilizadas</TechnologiesTitle>
+          <TechnologiesTitle className={isInView ? 'visible' : ''}>Tecnologias Utilizadas</TechnologiesTitle>
           <Technologies>
             {project.technologies.map((tech) => (
               <TechIcons key={tech}>
@@ -49,7 +51,7 @@ const ProjectsDetails = ({ project }) => {
             ))}
           </Technologies>
         </TechnologiesGroup>
-        <ProjectType>
+        <ProjectType className={isInView ? 'visible' : ''}>
           {project.projectType}
         </ProjectType>
       </LastDetails>
@@ -97,6 +99,13 @@ const ProjectDescription = styled.p`
   font-weight: 400;
   line-height: 35px;
 
+  opacity: 0;
+  transform: translateY(100px);
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+  }
+
   @media (min-width: 1280px) {
     width: 25rem;
     font-size: 1.3rem;
@@ -124,6 +133,14 @@ const ViewProject = styled.a`
   width: 17rem;
   text-align: center;
 
+  opacity: 0;
+  transform: translatex(100px);
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-delay: 0.3s;
+  }
+
   @media (min-width: 1280px) {
     transition: 0.3s ease-in-out;
 
@@ -146,6 +163,14 @@ const RepoProject = styled.a`
   padding: 0.5rem 1rem;
   width: 17rem;
   text-align: center;
+
+  opacity: 0;
+  transform: translatex(100px);
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-delay: 0.6s;
+  }
 
   @media (min-width: 1280px) {
     transition: 0.3s ease-in-out;
@@ -196,6 +221,14 @@ const TechnologiesTitle = styled.p`
   font-weight: 400;
   position: relative;
 
+  opacity: 0;
+  transform: translatex(100px);
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-delay: 1s;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -223,6 +256,7 @@ const TechIcons = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 100%;
+
 `
 
 const ProjectType = styled.p`
@@ -231,6 +265,13 @@ const ProjectType = styled.p`
   opacity: 50%;
   font-size: 0.75rem;
   font-weight: 400;
+
+  opacity: 0;
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-delay: 2s;
+  }
 
   @media (min-width: 1280px) {
     align-items: end;

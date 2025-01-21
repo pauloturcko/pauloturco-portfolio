@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ProjectsList from './ProjectsList';
 import ProjectsDetails from './ProjectsDetails';
+import useInView from '../Hooks/useInView';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0)
+  const [ref, isInView] = useInView({
+    threshold: 0.1,
+  })
 
   useEffect(() => {
     fetch('/pauloturco-portfolio/Projects.json')
@@ -18,15 +22,23 @@ const Projects = () => {
   const selectedProject = projects[selectedProjectIndex] || null;
 
   return (
-    <StyledArticle id='projects' aria-label='Meus Projetos'>
-      <SectionTitle>Meus<br></br>Projetos</SectionTitle>
+    <StyledArticle
+      id='projects'
+      aria-label='Meus Projetos'
+      ref={ref}
+      className={isInView ? 'visible' : ''}
+    >
+      <SectionTitle className={isInView ? 'visible' : ''}>Meus<br></br>Projetos</SectionTitle>
       <StyledDiv>
         <ProjectsList
           projects={projects}
           onSelect={setSelectedProjectIndex}
           selectedIndex={selectedProjectIndex}
         />
-        {selectedProject && <ProjectsDetails project={selectedProject} />}
+        {selectedProject && <ProjectsDetails
+          project={selectedProject}
+          isInView={isInView}
+        />}
       </StyledDiv>
     </StyledArticle>
   )
@@ -57,6 +69,13 @@ const SectionTitle = styled.h1`
   display: none;
   width: 80%;
   text-align: end;
+
+  opacity: 0;
+  transform: translatex(100px);
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+  }
 
   @media (min-width: 1280px) {
     display: flex;

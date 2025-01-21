@@ -53,6 +53,11 @@ const StyledDiv = styled.div`
   align-items: center;
   background-color: ${props => props.theme.colors.headerBg};
 
+  opacity: 0;
+  transform: translateY(-100px);
+  animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+  animation-delay: 1s;
+
   @media (min-width: 1280px) {
     width: 80%;
     height: 3.75rem;
@@ -72,6 +77,10 @@ const GithubIcon = styled(FaGithub)`
   width: 1.5rem;
   height: 1.5rem;
 
+  opacity: 0;
+  animation: ${({ theme }) => theme.animations.animeElement} 0.5s forwards;
+  animation-delay: 1.5s;
+
   @media (min-width: 1280px) {
     width: 1.875rem;
     height: 1.875rem;
@@ -82,6 +91,10 @@ const LinkedinIcon = styled(FaLinkedinIn)`
   color: ${props => props.theme.colors.primary};
   width: 1.5rem;
   height: 1.5rem;
+
+  opacity: 0;
+  animation: ${({ theme }) => theme.animations.animeElement} 0.5s forwards;
+  animation-delay: 1.7s;
 
   @media (min-width: 1280px) {
     width: 1.875rem;

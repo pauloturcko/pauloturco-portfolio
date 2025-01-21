@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import theme from '../styles/Theme'
 
-const CardGraduation = ({ title, course, icon: Icon, institution }) => {
+const CardGraduation = ({ title, course, icon: Icon, institution, isInView }) => {
   return (
-    <StyledCard>
+    <StyledCard className={isInView ? 'visible' : ''}>
       <StyledTitle>{title}</StyledTitle>
       <StyledCourseName>{course}</StyledCourseName>
       <StyledIcon>{Icon && <Icon />}</StyledIcon>
@@ -23,6 +23,14 @@ const StyledCard = styled.div`
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
+
+  opacity: 0;
+  transform: translatex(100px);
+
+  &.visible {
+    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-delay: 0.5s;
+  }
 `
 
 const StyledTitle = styled.p`
