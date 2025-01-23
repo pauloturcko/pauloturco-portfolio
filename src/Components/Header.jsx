@@ -57,6 +57,7 @@ const StyledDiv = styled.div`
   transform: translateY(-100px);
   animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
   animation-delay: 1s;
+  animation-iteration-count: 1;
 
   @media (min-width: 1280px) {
     width: 80%;
@@ -80,6 +81,7 @@ const GithubIcon = styled(FaGithub)`
   opacity: 0;
   animation: ${({ theme }) => theme.animations.animeElement} 0.5s forwards;
   animation-delay: 1.5s;
+  animation-iteration-count: 1;
 
   @media (min-width: 1280px) {
     width: 1.875rem;
@@ -95,6 +97,7 @@ const LinkedinIcon = styled(FaLinkedinIn)`
   opacity: 0;
   animation: ${({ theme }) => theme.animations.animeElement} 0.5s forwards;
   animation-delay: 1.7s;
+  animation-iteration-count: 1;
 
   @media (min-width: 1280px) {
     width: 1.875rem;

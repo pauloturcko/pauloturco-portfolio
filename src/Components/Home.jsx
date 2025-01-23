@@ -65,6 +65,7 @@ const Title = styled.h1`
   opacity: 0;
   transform: translatex(-100px);
   animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+  animation-iteration-count: 1;
 `
 
 const Subtitle = styled.h4`
@@ -77,6 +78,7 @@ const Subtitle = styled.h4`
   opacity: 0;
   transform: translatex(-100px);
   animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+  animation-iteration-count: 1;
   animation-delay: 0.3s;
 `
 
@@ -99,6 +101,7 @@ const DownloadCvButton = styled.a`
   transform: translatex(-100px);
   animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
   animation-delay: 0.6s;
+  animation-iteration-count: 1;
 
   @media (min-width: 1280px) {
     width: 14rem;

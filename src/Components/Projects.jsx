@@ -18,6 +18,13 @@ const Projects = () => {
         setProjects(data);
       })
   }, []);
+  const [hasAnimated, setHasAnimated] = useState(false)
+
+  useEffect(() => {
+    if (isInView & !hasAnimated) {
+      setHasAnimated(true)
+    }
+  }, [isInView, hasAnimated])
 
   const selectedProject = projects[selectedProjectIndex] || null;
 
@@ -26,9 +33,9 @@ const Projects = () => {
       id='projects'
       aria-label='Meus Projetos'
       ref={ref}
-      className={isInView ? 'visible' : ''}
+      className={hasAnimated ? 'visible' : ''}
     >
-      <SectionTitle className={isInView ? 'visible' : ''}>Meus<br></br>Projetos</SectionTitle>
+      <SectionTitle className={hasAnimated ? 'visible' : ''}>Meus<br></br>Projetos</SectionTitle>
       <StyledDiv>
         <ProjectsList
           projects={projects}
@@ -37,7 +44,7 @@ const Projects = () => {
         />
         {selectedProject && <ProjectsDetails
           project={selectedProject}
-          isInView={isInView}
+          hasAnimated={hasAnimated}
         />}
       </StyledDiv>
     </StyledArticle>
@@ -75,6 +82,7 @@ const SectionTitle = styled.h1`
 
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-iteration-count: 1;
   }
 
   @media (min-width: 1280px) {

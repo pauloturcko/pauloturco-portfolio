@@ -4,7 +4,7 @@ import { FaReact, FaJs, FaFigma } from "react-icons/fa";
 import { SiStyledcomponents, SiReactrouter, SiTailwindcss, SiTypescript } from "react-icons/si";
 import { MdCss, MdHtml } from "react-icons/md";
 
-const ProjectsDetails = ({ project, isInView }) => {
+const ProjectsDetails = ({ project, hasAnimated }) => {
   const techIcons = {
     React: <FaReact />,
     JavaScript: <FaJs />,
@@ -20,10 +20,10 @@ const ProjectsDetails = ({ project, isInView }) => {
   return (
     <StyledDiv>
       <FirstDetails>
-        <ProjectDescription className={isInView ? 'visible' : ''}>{project.description}</ProjectDescription>
+        <ProjectDescription className={hasAnimated ? 'visible' : ''}>{project.description}</ProjectDescription>
         <ProjectAccess>
           <ViewProject
-            className={isInView ? 'visible' : ''}
+            className={hasAnimated ? 'visible' : ''}
             href={project.projectLink}
             target="_blank"
             rel="noopener noreferrer"
@@ -31,7 +31,7 @@ const ProjectsDetails = ({ project, isInView }) => {
             Visualizar Projeto
           </ViewProject>
           <RepoProject
-            className={isInView ? 'visible' : ''}
+            className={hasAnimated ? 'visible' : ''}
             href={project.repoLink}
             target='_blank'
             rel='noopener noreferrer'
@@ -42,7 +42,7 @@ const ProjectsDetails = ({ project, isInView }) => {
       </FirstDetails>
       <LastDetails>
         <TechnologiesGroup>
-          <TechnologiesTitle className={isInView ? 'visible' : ''}>Tecnologias Utilizadas</TechnologiesTitle>
+          <TechnologiesTitle className={hasAnimated ? 'visible' : ''}>Tecnologias Utilizadas</TechnologiesTitle>
           <Technologies>
             {project.technologies.map((tech) => (
               <TechIcons key={tech}>
@@ -51,7 +51,7 @@ const ProjectsDetails = ({ project, isInView }) => {
             ))}
           </Technologies>
         </TechnologiesGroup>
-        <ProjectType className={isInView ? 'visible' : ''}>
+        <ProjectType className={hasAnimated ? 'visible' : ''}>
           {project.projectType}
         </ProjectType>
       </LastDetails>
@@ -104,6 +104,7 @@ const ProjectDescription = styled.p`
 
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-iteration-count: 1;
   }
 
   @media (min-width: 1280px) {
@@ -139,6 +140,7 @@ const ViewProject = styled.a`
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
     animation-delay: 0.3s;
+    animation-iteration-count: 1;
   }
 
   @media (min-width: 1280px) {
@@ -170,6 +172,7 @@ const RepoProject = styled.a`
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
     animation-delay: 0.6s;
+    animation-iteration-count: 1;
   }
 
   @media (min-width: 1280px) {
@@ -227,6 +230,7 @@ const TechnologiesTitle = styled.p`
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
     animation-delay: 1s;
+    animation-iteration-count: 1;
   }
 
   &::before {
@@ -271,6 +275,7 @@ const ProjectType = styled.p`
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
     animation-delay: 2s;
+    animation-iteration-count: 1;
   }
 
   @media (min-width: 1280px) {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import useInView from '../Hooks/useInView'
 
@@ -6,22 +6,29 @@ const Experience = () => {
   const [ref, isInView] = useInView({
     threshold: 0.1,
   })
+  const [hasAnimated, setHasAnimated] = useState(false)
+
+  useEffect(() => {
+    if (isInView & !hasAnimated) {
+      setHasAnimated(true)
+    }
+  }, [isInView, hasAnimated])
 
   return (
     <StyledArticle
       id='experience'
       aria-label='Experiência'
       ref={ref}
-      className={isInView ? 'visible' : ''}
+      className={hasAnimated ? 'visible' : ''}
     >
       <StyledDiv>
-        <SectionTitle className={isInView ? 'visible' : ''}>Por<br></br>onde<br></br>andei</SectionTitle>
+        <SectionTitle className={hasAnimated ? 'visible' : ''}>Por<br></br>onde<br></br>andei</SectionTitle>
         <Info>
           <TitleDiv>
-            <Company className={isInView ? 'visible' : ''}>Neocom</Company>
-            <JobTitle className={isInView ? 'visible' : ''}>Desenvolvedor Front-End</JobTitle>
+            <Company className={hasAnimated ? 'visible' : ''}>Neocom</Company>
+            <JobTitle className={hasAnimated ? 'visible' : ''}>Desenvolvedor Front-End</JobTitle>
           </TitleDiv>
-          <Description className={isInView ? 'visible' : ''}>Desenvolvimento de landing pages para campanhas publicitárias utilizando HTML, CSS & JavaScript. Para projetos maiores e mais complexos utilizava React, JavaScript e StyledComponents ou TailwindCSS, desta forma conseguindo manter o código limpo, reutilizável e escalável para possíveis atualizações futuras.</Description>
+          <Description className={hasAnimated ? 'visible' : ''}>Desenvolvimento de landing pages para campanhas publicitárias utilizando HTML, CSS & JavaScript. Para projetos maiores e mais complexos utilizava React, JavaScript e StyledComponents ou TailwindCSS, desta forma conseguindo manter o código limpo, reutilizável e escalável para possíveis atualizações futuras.</Description>
         </Info>
       </StyledDiv>
     </StyledArticle>
@@ -56,6 +63,7 @@ const SectionTitle = styled.h1`
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
     animation-delay: 1s;
+    animation-iteration-count: 1;
   }
 
   @media (min-width: 1280px) {
@@ -121,6 +129,7 @@ const Company = styled.h3`
 
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-iteration-count: 1;
   }
 `
 
@@ -137,6 +146,7 @@ const JobTitle = styled.h4`
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
     animation-delay: 0.3s;
+    animation-iteration-count: 1;
   }
 `
 
@@ -152,6 +162,7 @@ const Description = styled.p`
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
     animation-delay: 0.6s;
+    animation-iteration-count: 1;
   }
 
   @media (min-width: 1280px) {

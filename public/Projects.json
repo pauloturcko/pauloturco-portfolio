@@ -18,7 +18,7 @@
   {
     "name": "React-Router",
     "description": "Este projeto foi desenvolvido com o objetivo de aprofundar os conceitos da biblioteca React-Router-DOM. Nele, foi implementada a interação com uma API simulando um marketplace, incluindo o consumo de dados através de requisições assíncronas. Além disso, foram aplicadas práticas de tratamento de erros, garantindo uma exibição adequada de mensagens para o usuário em casos de falhas",
-    "projectLink": "https://vitalitygym.com",
+    "projectLink": "https://pauloturcko.github.io/",
     "repoLink": "https://github.com/pauloturcko/React-Router-Test",
     "technologies": ["React", "JavaScript", "CSS"],
     "projectType": "Este é um projeto autoral, sem fins lucrativos"

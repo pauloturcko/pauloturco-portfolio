@@ -32,9 +32,9 @@ const StyledMenu = styled.div`
   z-index: 4;
   background: ${props => props.theme.colors.headerBg};
   position: fixed;
-  top: 70px;
-  left: 5%;
-  width: 90%;
+  top: 50px;
+  left: 0;
+  width: 100%;
   height: 80vh;
   border-radius: 0 0 1rem 1rem;
   display: flex;
@@ -48,8 +48,8 @@ const StyledMenu = styled.div`
 
   @media (min-width: 1280px) {
     height: 20vh;
-    width: 80%;
-    left: 10%;
+    width: 100%;
+    left: 0%;
   }
 `
 

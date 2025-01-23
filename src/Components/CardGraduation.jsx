@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import theme from '../styles/Theme'
 
-const CardGraduation = ({ title, course, icon: Icon, institution, isInView }) => {
+const CardGraduation = ({ title, course, icon: Icon, institution, isInView, hasAnimated }) => {
   return (
-    <StyledCard className={isInView ? 'visible' : ''}>
+    <StyledCard className={hasAnimated ? 'visible' : ''}>
       <StyledTitle>{title}</StyledTitle>
       <StyledCourseName>{course}</StyledCourseName>
       <StyledIcon>{Icon && <Icon />}</StyledIcon>
@@ -30,6 +30,7 @@ const StyledCard = styled.div`
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
     animation-delay: 0.5s;
+    animation-iteration-count: 1;
   }
 `
 

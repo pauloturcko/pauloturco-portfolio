@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import CardGraduation from './CardGraduation'
 import { RiGraduationCapLine } from "react-icons/ri";
@@ -10,16 +10,23 @@ const About = () => {
   const [ref, isInView] = useInView({
     threshold: 0.1,
   })
+  const [hasAnimated, setHasAnimated] = useState(false)
+
+  useEffect(() => {
+    if (isInView & !hasAnimated) {
+      setHasAnimated(true)
+    }
+  }, [isInView, hasAnimated])
 
   return (
     <StyledArticle
       ref={ref}
-      className={isInView ? 'visible' : ''}
+      className={hasAnimated ? 'visible' : ''}
       id='about'
       aria-label='Sobre Mim'
     >
       <StyledDiv>
-        <StyledText className={isInView ? 'visible' : ''}>Sou um desenvolvedor <Highlight>Front-End</Highlight> apaixonado por tecnologia e inovação, gosto de pesquisar, ver e entender como tudo isso funciona.<br></br>
+        <StyledText className={hasAnimated ? 'visible' : ''}>Sou um desenvolvedor <Highlight>Front-End</Highlight> apaixonado por tecnologia e inovação, gosto de pesquisar, ver e entender como tudo isso funciona.<br></br>
           Estou nesta área a 2 anos e atualmente trabalho com <Highlight>React</Highlight>, <Highlight>JavaScript</Highlight> e <Highlight>TypeScript</Highlight>.</StyledText>
         <GraduationDiv>
           <CardGraduation
@@ -28,6 +35,7 @@ const About = () => {
             icon={RiGraduationCapLine}
             institution='Unoesc'
             isInView={isInView}
+            hasAnimated={hasAnimated}
           />
           <CardGraduation
             title='Curso'
@@ -35,6 +43,7 @@ const About = () => {
             icon={IoCode}
             institution='Alura'
             isInView={isInView}
+            hasAnimated={hasAnimated}
           />
           <CardGraduation
             title='Curso'
@@ -42,6 +51,7 @@ const About = () => {
             icon={MdOutlineBrush}
             institution='Origamid'
             isInView={isInView}
+            hasAnimated={hasAnimated}
           />
         </GraduationDiv>
       </StyledDiv>
@@ -95,6 +105,7 @@ const StyledText = styled.p`
 
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
+    animation-iteration-count: 1;
   }
 
   &::before {
