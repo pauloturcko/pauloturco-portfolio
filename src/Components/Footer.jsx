@@ -6,7 +6,7 @@ import { FaRegCopyright } from "react-icons/fa";
 const Footer = () => {
   return (
     <StyledFooter>
-      <StyledText>Copyright <FaRegCopyright /> 2025 Paulo Turco. Alguns direitos reservados.</StyledText>
+      <StyledText>Copyright <FaRegCopyright /> 2026 Paulo Turco. Alguns direitos reservados.</StyledText>
     </StyledFooter>
   )
 }

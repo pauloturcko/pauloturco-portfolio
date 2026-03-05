@@ -1,11 +1,30 @@
 [
+    {
+    "name": "Whai Data",
+    "description": "Whai Data é um dashboard financeiro criado para substituir planilhas no controle de finanças pessoais, permitindo visualizar receitas, despesas e investimentos de forma mais intuitiva. A aplicação possui sistema de login e gerenciamento de dados por usuário, possibilitando que diferentes pessoas utilizem a plataforma.",
+    "projectLink": "https://github.com/pauloturcko",
+    "repoLink": "https://github.com/pauloturcko/DataFarm.Api.git",
+    "technologies": ["TypeScript", "Node", "PostgreSQL", "Docker", "Postman"],
+    "projectType": "Este é um projeto autoral, sem fins lucrativos",
+    "status": "Em andamento"
+  },
+  {
+    "name": "Data Farm",
+    "description": "Data Farm é um sistema ERP desenvolvido para a gestão de fazendas de pecuária de corte. A aplicação permite gerenciar animais, controlar o estoque de insumos como rações e vacinas, registrar compras e vendas de gado, além de administrar fretes, funcionários e outras informações operacionais da fazenda.",
+    "projectLink": "https://github.com/pauloturcko",
+    "repoLink": "https://github.com/pauloturcko/DataFarm.Api.git",
+    "technologies": ["Csharp", "Dotnet", "PostgreSQL", "Postman", "Docker"],
+    "projectType": "Este é um projeto autoral, sem fins lucrativos",
+    "status": "Standby"
+  },
   {
     "name": "Dogs",
     "description": "O projeto Dogs é uma rede social para cachorros, desenvolvido para aplicar conhecimentos em React e React Router DOM. Durante o processo, utilizei uma API, implementando tratamento de erros quando necessário. O maior desafio foi a validação de formulários, onde aprofundei técnicas importantes. Além disso, destaquei o uso eficiente do React Router DOM",
     "projectLink": "https://dogs-origamid.vercel.app/",
     "repoLink": "https://github.com/pauloturcko/Dogs",
     "technologies": ["React", "JavaScript", "ReactRouterDOM", "CSS" ],
-    "projectType": "Este é um projeto do curso de React na Origamid"
+    "projectType": "Este é um projeto do curso de React na Origamid",
+    "status": "Finalizado"
   },
   {
     "name": "Portfólio",
@@ -13,7 +32,9 @@
     "projectLink": "https://pauloturcko.github.io/pauloturco-portfolio",
     "repoLink": "https://github.com/pauloturcko/potfolio",
     "technologies": ["React", "JavaScript", "StyledComponents", "Figma"],
-    "projectType": "Este é um projeto autoral, sem fins lucrativos"
+    "projectType": "Este é um projeto autoral, sem fins lucrativos",
+    "status": "Finalizado"
+  
   },
   {
     "name": "React-Router",
@@ -21,14 +42,7 @@
     "projectLink": "https://pauloturcko.github.io/",
     "repoLink": "https://github.com/pauloturcko/React-Router-Test",
     "technologies": ["React", "JavaScript", "CSS"],
-    "projectType": "Este é um projeto autoral, sem fins lucrativos"
-  },
-  {
-    "name": "Forest",
-    "description": "Projeto ainda em desenvolvimento, pegue um café e aguarde enquanto escrevo mais algumas linhas de código...",
-    "projectLink": "https://github.com/pauloturcko",
-    "repoLink": "https://github.com/pauloturcko",
-    "technologies": ["JavaScript","HTML", "Tailwindcss"],
-    "projectType": "Este é um projeto autoral, sem fins lucrativos"
+    "projectType": "Este é um projeto autoral, sem fins lucrativos",
+    "status": "Finalizado"
   }
 ]

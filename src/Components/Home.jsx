@@ -10,7 +10,7 @@ const Home = () => {
         <TextDiv>
           <Title>Olá! Eu sou Paulo Turco</Title>
           <Subtitle>Desenvolvedor Front-End</Subtitle>
-          <DownloadCvButton href='../docs/Currículo Paulo Turco.pdf' download='Currículo - Paulo Turco PTBR.pdf' aria-label="Baixar Currículo em PDF">Download C.V</DownloadCvButton>
+          <DownloadCvButton href='../docs/Currículo Paulo Turco.pdf' download='Currículo - Paulo Turco.pdf' aria-label="Baixar Currículo em PDF">Download C.V</DownloadCvButton>
         </TextDiv>
         <ProfilePicture />
       </StyledDiv>

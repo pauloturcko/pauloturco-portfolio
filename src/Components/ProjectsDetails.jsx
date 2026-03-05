@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FaReact, FaJs, FaFigma } from "react-icons/fa";
-import { SiStyledcomponents, SiReactrouter, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { SiStyledcomponents, SiReactrouter, SiTailwindcss, SiTypescript, SiPostman, SiDotnet } from "react-icons/si";
 import { MdCss, MdHtml } from "react-icons/md";
+import { BiLogoPostgresql } from 'react-icons/bi';
+import { TbBrandCSharp } from 'react-icons/tb';
+import { FaDocker, FaNodeJs } from 'react-icons/fa6';
 
 const ProjectsDetails = ({ project, hasAnimated }) => {
   const techIcons = {
@@ -14,7 +17,13 @@ const ProjectsDetails = ({ project, hasAnimated }) => {
     StyledComponents: <SiStyledcomponents />,
     Figma: <FaFigma />,
     ReactRouterDOM: <SiReactrouter />,
-    Tailwindcss: <SiTailwindcss />
+    Tailwindcss: <SiTailwindcss />,
+    PostgreSQL: <BiLogoPostgresql />,
+    Csharp: <TbBrandCSharp  />,
+    Dotnet: <SiDotnet  />,
+    Node: <FaNodeJs />,
+    Postman: <SiPostman />,
+    Docker: <FaDocker />,
   }
 
   return (
@@ -38,6 +47,9 @@ const ProjectsDetails = ({ project, hasAnimated }) => {
           >
             Repositório do Projeto
           </RepoProject>
+          <ProjectStatus>
+            {project.status}
+          </ProjectStatus>
         </ProjectAccess>
       </FirstDetails>
       <LastDetails>
@@ -182,6 +194,18 @@ const RepoProject = styled.a`
       transform: scale(1.025);
     }
   }
+`
+
+const ProjectStatus = styled.div`
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  color: ${({ theme }) => theme.colors.altText};
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.25rem;
+  width: 17rem;
+  text-align: end;
 `
 
 const LastDetails = styled.div`
