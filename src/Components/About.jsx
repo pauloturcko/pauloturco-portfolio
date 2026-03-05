@@ -26,12 +26,12 @@ const About = () => {
       aria-label='Sobre Mim'
     >
       <StyledDiv>
-        <StyledText className={hasAnimated ? 'visible' : ''}>Sou um desenvolvedor <Highlight>Front-End</Highlight> apaixonado por tecnologia e inovação, gosto de pesquisar, ver e entender como tudo isso funciona.<br></br>
-          Estou nesta área a 2 anos e atualmente trabalho com <Highlight>React</Highlight>, <Highlight>JavaScript</Highlight> e <Highlight>TypeScript</Highlight>.</StyledText>
+        <StyledText className={hasAnimated ? 'visible' : ''}>Sou um desenvolvedor <Highlight>Front-End</Highlight> apaixonado por tecnologia e inovação, gosto de pesquisar, ver e entender como tudo isso funciona.<br/>
+          Estou nesta área a 2 anos e atualmente trabalho com <Highlight>React</Highlight>, <Highlight>JavaScript</Highlight> e <Highlight>TypeScript</Highlight>.<br/>Também venho estudando  Back-End com <Highlight>Node.js</Highlight> e expandindo meus conhecimentos para evoluir como desenvolvedor Full Stack.</StyledText>
         <GraduationDiv>
           <CardGraduation
             title='Bacharel'
-            course='Ciências da Computação'
+            course='Engenharia da Computação'
             icon={RiGraduationCapLine}
             institution='Unoesc'
             isInView={isInView}
@@ -39,17 +39,17 @@ const About = () => {
           />
           <CardGraduation
             title='Curso'
-            course='Formação Front-End'
-            icon={IoCode}
-            institution='Alura'
+            course='Front-End e UX/UI'
+            icon={MdOutlineBrush}
+            institution='Alura e Origamid'
             isInView={isInView}
             hasAnimated={hasAnimated}
           />
           <CardGraduation
             title='Curso'
-            course='Front-End e UX/UI'
-            icon={MdOutlineBrush}
-            institution='Origamid'
+            course='Node.js e .NET'
+            icon={IoCode}
+            institution='DDV e Rocketseat'
             isInView={isInView}
             hasAnimated={hasAnimated}
           />
