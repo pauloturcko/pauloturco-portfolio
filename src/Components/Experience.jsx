@@ -1,18 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import useInView from '../Hooks/useInView'
+import ExperienceList from './ExperienceList'
 
 const Experience = () => {
+  const [experiences, setExperiences] = useState([])
+  const [selectedExperienceIndex, setSelectedExperienceIndex] = useState(0)
+
   const [ref, isInView] = useInView({
     threshold: 0.1,
   })
   const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
+    fetch('/pauloturco-portfolio/Companies.json')
+      .then((response) => response.json())
+      .then((data) => {
+        setExperiences(data)
+      })
+  }, [])
+
+  useEffect(() => {
     if (isInView & !hasAnimated) {
       setHasAnimated(true)
     }
   }, [isInView, hasAnimated])
+
+  const selectedExperience = experiences[selectedExperienceIndex] || null
 
   return (
     <StyledArticle
@@ -22,13 +36,22 @@ const Experience = () => {
       className={hasAnimated ? 'visible' : ''}
     >
       <StyledDiv>
-        <SectionTitle className={hasAnimated ? 'visible' : ''}>Por<br></br>onde<br></br>andei</SectionTitle>
+        <SectionTitle className={hasAnimated ? 'visible' : ''}>Por<br />onde<br />andei</SectionTitle>
         <Info>
-          <TitleDiv>
-            <Company className={hasAnimated ? 'visible' : ''}>Neocom</Company>
-            <JobTitle className={hasAnimated ? 'visible' : ''}>Desenvolvedor Front-End</JobTitle>
+          <TitleDiv className={hasAnimated ? 'visible' : ''}>
+            <ExperienceList
+              experiences={experiences}
+              onSelect={setSelectedExperienceIndex}
+              selectedIndex={selectedExperienceIndex}
+            />
           </TitleDiv>
-          <Description className={hasAnimated ? 'visible' : ''}>Desenvolvimento de landing pages para campanhas publicitárias utilizando HTML, CSS & JavaScript. Para projetos maiores e mais complexos utilizava React, JavaScript e StyledComponents ou TailwindCSS, desta forma conseguindo manter o código limpo, reutilizável e escalável para possíveis atualizações futuras.</Description>
+
+          {selectedExperience && (
+            <DescriptionContainer className={hasAnimated ? 'visible' : ''}>
+              <JobTitle>{selectedExperience.role}</JobTitle>
+              <Description>{selectedExperience.description}</Description>
+            </DescriptionContainer>
+          )}
         </Info>
       </StyledDiv>
     </StyledArticle>
@@ -75,7 +98,6 @@ const StyledDiv = styled.div`
   width: 90%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
@@ -88,58 +110,32 @@ const StyledDiv = styled.div`
   }
 `
 
-const TitleDiv = styled.div`
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  position: relative;
-  gap: 3px;
 
-  &::before {
-    content: '';
-    background: ${({ theme }) => theme.colors.primary};
-    border-radius: 10px;
-    width: 5rem;
-    height: 3px;
-    position: absolute;
-    top: -5px;
-    left: 0px;
-  }
-`
 
 const Info = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: start;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  align-items: flex-end;
   justify-content: center;
   gap: 2rem;
+  width: 100%;
 `
 
-const Company = styled.h3`
-  color: ${({ theme }) => theme.colors.white};
-  font-family: ${({ theme }) => theme.fonts.primary};
-  font-size: 1.3rem;
-  font-weight: 700;
+const TitleDiv = styled.div`
+  background-color: ${({ theme }) => theme.colors.colorBg};
+  padding: 0.125rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  font-size: 1rem;
 
-  opacity: 0;
-  transform: translatex(100px);
+  display: flex;
+  justify-content: flex-start;
 
-  &.visible {
-    animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
-    animation-iteration-count: 1;
+  @media (min-width: 1280px) {
+    width: 35rem;
   }
-`
-
-const JobTitle = styled.h4`
-  color: ${({ theme }) => theme.colors.altText};
-  font-family: ${({ theme }) => theme.fonts.secondary};
-  font-size: 0.875rem;
-  font-weight: 400;
-  text-transform: uppercase;
-
   opacity: 0;
   transform: translatex(100px);
 
@@ -150,11 +146,38 @@ const JobTitle = styled.h4`
   }
 `
 
+
+
+const JobTitle = styled.h4`
+  color: ${({ theme }) => theme.colors.altText};
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-transform: uppercase;
+`
+
 const Description = styled.p`
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.primary};
   font-size: 1.25rem;
   font-weight: 500;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+
+  width: 80%;
+  max-width: 90%;
+
+  @media (min-width: 1280px) {
+    width: 90%;
+  }
+`
+
+const DescriptionContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.colorBg};
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  width: 100%;
 
   opacity: 0;
   transform: translatex(100px);
@@ -162,7 +185,6 @@ const Description = styled.p`
   &.visible {
     animation: ${({ theme }) => theme.animations.animeElement} 1s forwards;
     animation-delay: 0.6s;
-    animation-iteration-count: 1;
   }
 
   @media (min-width: 1280px) {
