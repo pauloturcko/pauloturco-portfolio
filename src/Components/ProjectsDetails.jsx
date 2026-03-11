@@ -6,6 +6,7 @@ import { MdCss, MdHtml } from "react-icons/md";
 import { BiLogoPostgresql } from 'react-icons/bi';
 import { TbBrandCSharp } from 'react-icons/tb';
 import { FaDocker, FaNodeJs } from 'react-icons/fa6';
+import { RiNextjsFill } from 'react-icons/ri';
 
 const ProjectsDetails = ({ project, hasAnimated }) => {
   const techIcons = {
@@ -24,6 +25,7 @@ const ProjectsDetails = ({ project, hasAnimated }) => {
     Node: <FaNodeJs />,
     Postman: <SiPostman />,
     Docker: <FaDocker />,
+    Next: <RiNextjsFill />
   }
 
   return (
